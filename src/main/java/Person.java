@@ -1,5 +1,5 @@
-import java.io.Serializable;
 import java.util.Objects;
+import java.io.Serializable;
 
 public class Person implements Serializable {
     private String name, lastName, patronymic;
@@ -29,6 +29,37 @@ public class Person implements Serializable {
         this.patronymic = patronymic;
         this.day = day;
         this.month = month;
+        this.year = year;
+    }
+
+    public int getDay() {
+        return day;
+    }
+
+    public void setDay(int day) throws Exception {
+        if (day <= 0 || day > 31)
+            throw new Exception("Некорректный день");
+        this.day = day;
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public void setMonth(int month) throws Exception {
+        if (month <= 0 || month > 12)
+            throw new Exception("Некорректный месяц");
+        this.month = month;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) throws Exception {
+        if (year < 0) {
+            throw new Exception("Некорректный год");
+        }
         this.year = year;
     }
 
@@ -63,36 +94,6 @@ public class Person implements Serializable {
         this.patronymic = patronymic;
     }
 
-    public int getDay() {
-        return day;
-    }
-
-    public void setDay(int day) throws Exception {
-        if (day <= 0 || day > 31)
-            throw new Exception("Некорректный день");
-        this.day = day;
-    }
-
-    public int getMonth() {
-        return month;
-    }
-
-    public void setMonth(int month) throws Exception {
-        if (month <= 0 || month > 12)
-            throw new Exception("Некорректный месяц");
-        this.month = month;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) throws Exception {
-        if (year < 0) {
-            throw new Exception("Некорректный год");
-        }
-        this.year = year;
-    }
 
     @Override
     public String toString() {

@@ -5,35 +5,23 @@ import java.util.Objects;
 
 public class Flat implements Serializable
 {
-    private int apartmentNumber, area;
-    private List<Person> Owners;
+    private int Numberofapartament, area;
+    private List<Person> Buyers;
 
     Flat() {
-        apartmentNumber = 0;
+        Numberofapartament = 0;
         area = 0;
-        Owners = new ArrayList<>();
+        Buyers = new ArrayList<>();
     }
 
-    public Flat(int apartmentNumber, int area, List<Person> owners) {
-        this.apartmentNumber = apartmentNumber;
+    public Flat(int Numberofapartament, int area, List<Person> buyers) {
+        this.Numberofapartament = Numberofapartament;
         this.area = area;
-        this.Owners = owners;
+        this.Buyers = buyers;
     }
 
-    public List<Person> getOwners() {
-        return Owners;
-    }
-
-    public void setOwners(List<Person> owners) {
-        Owners = owners;
-    }
-
-    public int getApartmentNumber() {
-        return apartmentNumber;
-    }
-
-    public void setApartmentNumber(int apartmentNumber) {
-        this.apartmentNumber = apartmentNumber;
+    public void setNumberofapartament(int numberofapartament) {
+        this.Numberofapartament = numberofapartament;
     }
 
     public int getArea() {
@@ -43,26 +31,39 @@ public class Flat implements Serializable
     public void setArea(int area) {
         this.area = area;
     }
+    public List<Person> getBuyers() {
+        return Buyers;
+    }
+
+    public void setBuyers(List<Person> buyers) {
+        Buyers = buyers;
+    }
+
+    public int getNumberofapartament() {
+        return Numberofapartament;
+    }
+
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Flat flat = (Flat) o;
-        return apartmentNumber == flat.apartmentNumber && area == flat.area && Owners.equals(flat.Owners);
+        return Numberofapartament == flat.Numberofapartament && area == flat.area && Buyers.equals(flat.Buyers);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(apartmentNumber, area, Owners);
+        return Objects.hash(Numberofapartament, area, Buyers);
     }
 
     @Override
     public String toString() {
         return "Flat{" +
-                "apartmentNumber=" + apartmentNumber +
+                "apartmentNumber=" + Numberofapartament +
                 ", area=" + area +
-                ", Owners=" + Owners +
+                ", Owners=" + Buyers +
                 '}';
     }
 }

@@ -1,6 +1,7 @@
 import java.io.*;
 
-public class HouseSerializeAndDeserialize {
+public class HouseSerializeAndDeserialize
+{
     public static void houseSerialize(House house, File fileName) {
         try (ObjectOutput out = new ObjectOutputStream(new FileOutputStream(fileName))) {
             out.writeObject(house);

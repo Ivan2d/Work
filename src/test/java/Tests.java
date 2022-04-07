@@ -1,11 +1,8 @@
-import static org.junit.Assert.*;
-
-import org.junit.Test;
-
 import java.io.*;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class Tests
 {
@@ -13,12 +10,15 @@ public class Tests
     Main main = new Main();
 
     @Test
-    public void firstTaskTest(){
+    public void firstTaskTest()
+    {
         try(OutputStream out = new FileOutputStream("data.txt");
-            InputStream in = new FileInputStream("data.txt")){
+            InputStream in = new FileInputStream("data.txt"))
+        {
             int[] arr = {1, 2, 3, 4};
             main.writeByteStream(out, arr);
             assertArrayEquals(arr, main.readByteStream(in));
+
         }
         catch (IOException ex){
             System.out.println(ex.getMessage());
@@ -51,8 +51,9 @@ public class Tests
     }
 
     @Test
-    public void fourthTastTest() throws IOException{
-        File dir = new File("D://SeventhFIleWithTests");
+    public void fourthTestTest() throws IOException
+    {
+        File dir = new File("С://JavaProgs//Work");
         File file1 = new File(dir, "data.txt");
         File file2 = new File(dir, "test1.txt");
         List<File> fileRes = main.filesCatalog("txt", dir);
@@ -111,6 +112,6 @@ public class Tests
         House house = new House("31", "ул. Мира 32", new Person
                 ("Сергей", "Власов", "Денисович", 17, 8, 1980), flats);
 
-        assertEquals(house, HouseJackson.HouseFromJson(HouseJackson.HouseToJson(house)));
+        assertEquals(house, HouseJackson.ObjectReturnFromJson(HouseJackson.ObjectJson(house)));
     }
 }

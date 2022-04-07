@@ -66,7 +66,8 @@ public class Main {
         return null;
     }
 
-    public List<File> filesCatalog(String expansion, File directory) throws IOException{
+    public List<File> filesCatalog(String expansion, File directory) throws IOException
+    {
         List<File> res = new ArrayList<>();
         File[] listFiles = directory.listFiles(File::isFile);
 

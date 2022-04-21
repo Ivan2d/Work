@@ -14,7 +14,8 @@ public class Main {
         }
     }
 
-    public int[] readByteStream(InputStream in){
+    public int[] readByteStream(InputStream in)
+    {
         try(DataInputStream dataInputStream = new DataInputStream(in)){
             int[] arr = new int[in.available() / 4];
             for(int i = 0; i < arr.length; i++){
@@ -55,15 +56,14 @@ public class Main {
         }
     }
 
-    public String readRandomAccessFile(File fileName, int position){
-        try(RandomAccessFile raf = new RandomAccessFile(fileName, "r")){
-            raf.seek(position);
-            return raf.readLine();
+    public int[] readRandomAccessFile(RandomAccessFile raf, long position) throws IOException
+    {
+        int[] res = new int[(int) (raf.length() - position )/ Integer.BYTES];
+        raf.seek(position);
+        for (int i = 0; i < res.length; i++) {
+            res[i] = raf.readInt();
         }
-        catch (IOException ex){
-            System.out.println(ex.getMessage());
-        }
-        return null;
+        return res;
     }
 
     public List<File> filesCatalog(String expansion, File directory) throws IOException

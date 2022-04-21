@@ -6,7 +6,6 @@ import org.junit.Test;
 
 public class Tests
 {
-
     Main main = new Main();
 
     @Test
@@ -37,23 +36,23 @@ public class Tests
             System.out.println(ex.getMessage());
         }
     }
-
     @Test
-    public void thirdTastTest() throws IOException {
-        File f1 = new File("data.txt");
-        BufferedWriter writer = new BufferedWriter(new FileWriter(f1));
-        writer.write("check arr: 8 22 44 552");
-        writer.close();
-        int position = 11;
-        String res = "8 22 44 552";
-
-        assertEquals(res, main.readRandomAccessFile(f1, position));
+    public void thirdTastTest() throws IOException
+    {
+        long pos = 2 * Integer.BYTES;
+        RandomAccessFile raf = new RandomAccessFile("C:\\Users\\XeonE5430\\Documents", "rw");
+        raf.writeInt(5);
+        raf.writeInt(6);
+        raf.writeInt(7);
+        int[] exp = {7};
+        assertArrayEquals(main.readRandomAccessFile(raf, pos), exp);
+        raf.close();
     }
 
     @Test
     public void fourthTestTest() throws IOException
     {
-        File dir = new File("С://JavaProgs//Work");
+        File dir = new File("C:\\JavaProgs\\Work");
         File file1 = new File(dir, "data.txt");
         File file2 = new File(dir, "test1.txt");
         List<File> fileRes = main.filesCatalog("txt", dir);
